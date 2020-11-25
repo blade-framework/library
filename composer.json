@@ -1,0 +1,20 @@
+{
+  "name": "blade/library",
+  "description": "刀片工具的通用方法库",
+  "type": "library",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Wedan",
+      "email": "719540363@qq.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.1"
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Blade\\Library\\": "src/"
+    }
+  }
+}
