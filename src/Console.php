@@ -20,7 +20,17 @@ class Console
     public static function print(string $format, ...$arg): void
     {
         $format = str_replace(self::FORMAT_MARK, self::FORMAT_CODE, $format);
-        printf($format . "\n", ...$arg);
+        printf($format, ...$arg);
+    }
+
+    /**
+     * TODO：输出格式化内容到控制台，自动添加换行符
+     * @param string $format
+     * @param mixed ...$arg
+     */
+    public static function println(string $format, ...$arg): void
+    {
+        self::print($format . PHP_EOL, ...$arg);
     }
 
     /**
