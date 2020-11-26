@@ -108,6 +108,22 @@ class Console
     }
 
     /**
+     * TODO：引导用户输入，返回输入内容
+     * @param string $tips
+     * @return string
+     */
+    public static function input(string $tips = ''): string
+    {
+        fwrite(STDOUT, $tips);
+        $msg = fgets(STDIN);
+        // TODO：如果接收内容为null时，退出进程
+        if (null === $msg) {
+            exit(0);
+        }
+        return trim($msg);
+    }
+
+    /**
      * TODO：取出指定范围的命令行参数，返回数组
      * @param int $start
      * @param int $end
