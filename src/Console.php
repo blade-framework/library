@@ -124,7 +124,7 @@ class Console
      */
     public static function input(string $tips = ''): string
     {
-        fwrite(STDOUT, $tips);
+        self::print($tips);
         $msg = fgets(STDIN);
         // TODO：如果接收内容为null时，退出进程
         if (null === $msg) {
