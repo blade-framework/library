@@ -121,7 +121,6 @@ class Config
                 if (method_exists($data, 'toArray') && is_callable([$data, 'toArray'])) {
                     // TODO：如果对象自带数组转换方法，则使用自带转换方法
                     if (!is_array($data = call_user_func([$data, 'toArray']))) {
-                        var_dump('---对象自带toArray但返回的数据不是数组---',$name,$data,'-------');
                         // TODO：如果自带数组转换方法返回的数据不是数组则视为无效数据
                         continue;
                     }
@@ -162,6 +161,6 @@ class Config
         if (!is_dir($dir) && !mkdir($dir, 0755, true)) {
             return false;
         }
-        return false !== file_put_contents($file, json_encode($config->toArray()));
+        return false !== file_put_contents($file, json_encode($config->toArray(), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     }
 }
