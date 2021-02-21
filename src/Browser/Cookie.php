@@ -111,7 +111,7 @@ class Cookie
             if (!static::$cacheDir) {
                 return $this;
             }
-            $this->setCacheFile(rtrim(static::$cacheDir, '/') . "{$this->domain}.cookie");
+            $this->setCacheFile(rtrim(static::$cacheDir, '/') . "/{$this->domain}.cookie");
         }
         Dataset::read($this->_cacheFile, $this->cookies);
         return $this;
@@ -127,7 +127,7 @@ class Cookie
             if (!static::$cacheDir) {
                 return $this;
             }
-            $this->setCacheFile(rtrim(static::$cacheDir, '/') . "{$this->domain}.cookie");
+            $this->setCacheFile(rtrim(static::$cacheDir, '/') . "/{$this->domain}.cookie");
         }
         Dataset::write($this->_cacheFile, $this->cookies);
         return $this;
@@ -182,7 +182,7 @@ class Cookie
     public function setCacheFile(string $file): bool
     {
         $dir = dirname($file);
-        if (!is_dir($dir) && (!mkdir($dir, 0755, true)) || !file_put_contents($file, '{}')) {
+        if (!is_dir($dir) && (!mkdir($dir, 0755, true)) || !is_writable($file)) {
             return false;
         }
         $this->_cacheFile = realpath($file);

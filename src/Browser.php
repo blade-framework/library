@@ -45,6 +45,7 @@ class Browser
         $this->prototype = $prototype;
         $this->request = new Request();
         $this->cookie = new Cookie($this->host);
+        $this->cookie->read();
     }
 
     /**
