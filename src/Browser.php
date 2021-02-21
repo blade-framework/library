@@ -92,7 +92,7 @@ class Browser
      * @param string $url
      * @return Response|null
      */
-    public function get(string $url): string
+    public function get(string $url): ?Response
     {
         return $this->curl($url);
     }
@@ -104,7 +104,7 @@ class Browser
      * @param int $type
      * @return Response|null
      */
-    public function post(string $url, array $data = [], int $type = self::POST_FORM): string
+    public function post(string $url, array $data = [], int $type = self::POST_FORM): ?Response
     {
         return $this->curl($url, $data, $type);
     }
@@ -151,7 +151,7 @@ class Browser
         }
         // 生成响应对象
         list($header, $body) = explode("\r\n\r\n", $context);
-        $response = new Response($header, $body);
+        $response = new Response($header, $body, $this->cookieEnable ? $this->cookie : null);
         // 如果请求结果是200则记录请求历史
         $this->history[] = $url;
         $this->lastPage = $url;

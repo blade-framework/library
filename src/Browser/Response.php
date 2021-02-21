@@ -26,7 +26,7 @@ class Response
      * @param string $body
      * @param Cookie|null $cookie
      */
-    public function __construct(string $header, string $body, Cookie &$cookie = null)
+    public function __construct(string $header, string $body, Cookie $cookie = null)
     {
         // 解析响应头
         $header = explode("\r\n", $header);
@@ -34,7 +34,7 @@ class Response
         list(, $this->statusCode, $this->statusText) = explode(' ', array_shift($header));
         // 第二行开始是响应头数据
         foreach ($header as $value) {
-            $value = explode(':', $value);
+            $value = explode(':', $value, 2);
             $name = strtolower(trim($value[0]));
             $value = strtolower(trim($value[1]));
             // 设置cookie
@@ -59,7 +59,7 @@ class Response
      */
     protected function parseCookie(string $cookieText, Cookie $cookie): void
     {
-        parse_str(preg_replace('/;\s*/', '&', $cookieText), $items);
+        parse_str(str_replace(['%3D', '%3B+'], ['=', '&'], urlencode($cookieText)), $items);
         $name = array_key_first($items);
         $value = current($items);
         $expire = isset($items['expires']) ? (strtotime($items['expires']) - time()) : 0;
