@@ -20,7 +20,17 @@ class Console
     public static function print(string $format, ...$arg): void
     {
         $format = str_replace(self::FORMAT_MARK, self::FORMAT_CODE, $format);
-        printf($format . "\n", ...$arg);
+        printf($format, ...$arg);
+    }
+
+    /**
+     * TODO：输出格式化内容到控制台，自动添加换行符
+     * @param string $format
+     * @param mixed ...$arg
+     */
+    public static function println(string $format, ...$arg): void
+    {
+        self::print($format . PHP_EOL, ...$arg);
     }
 
     /**
@@ -105,6 +115,22 @@ class Console
             }
         }
         return null;
+    }
+
+    /**
+     * TODO：引导用户输入，返回输入内容
+     * @param string $tips
+     * @return string
+     */
+    public static function input(string $tips = ''): string
+    {
+        self::print($tips);
+        $msg = fgets(STDIN);
+        // TODO：如果接收内容为null时，退出进程
+        if (false === $msg) {
+            exit(0);
+        }
+        return trim($msg);
     }
 
     /**
