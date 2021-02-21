@@ -3,6 +3,7 @@
   "description": "刀片工具的通用方法库",
   "type": "library",
   "license": "Apache-2.0",
+  "minimum-stability": "dev",
   "authors": [
     {
       "name": "Wedan",
@@ -14,7 +15,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Blade\\Library\\": "src/"
+      "Blade\\Library\\": "./src/"
     }
   }
 }

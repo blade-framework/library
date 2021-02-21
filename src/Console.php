@@ -127,7 +127,7 @@ class Console
         self::print($tips);
         $msg = fgets(STDIN);
         // TODO：如果接收内容为null时，退出进程
-        if (null === $msg) {
+        if (false === $msg) {
             exit(0);
         }
         return trim($msg);
