@@ -2,9 +2,9 @@
 
 namespace Blade\Library;
 
-use Blade\Browser\Cookie;
-use Blade\Browser\Request;
-use Blade\Browser\Response;
+use Blade\Library\Browser\Cookie;
+use Blade\Library\Browser\Request;
+use Blade\Library\Browser\Response;
 
 /**
  * 模拟浏览器请求web服务
