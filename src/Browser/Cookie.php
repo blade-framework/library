@@ -1,6 +1,6 @@
 <?php
 
-namespace Blade\Browser;
+namespace Blade\Library\Browser;
 
 use Blade\Library\Dataset;
 

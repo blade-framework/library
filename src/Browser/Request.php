@@ -1,8 +1,6 @@
 <?php
 
-namespace Blade\Browser;
-
-use Blade\Library\Browser;
+namespace Blade\Library\Browser;
 
 /**
  * 模拟浏览器-请求器

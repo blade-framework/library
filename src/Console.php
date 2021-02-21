@@ -13,7 +13,7 @@ class Console
     const FORMAT_CODE = ["\033[31m", "\033[32m", "\033[34m", "\033[35m", "\033[33m", "\033[36m", "\033[0m"];
 
     /**
-     * TODO：输出格式化内容到控制台
+     * 输出格式化内容到控制台
      * @param string $format
      * @param mixed ...$arg
      */
@@ -24,7 +24,7 @@ class Console
     }
 
     /**
-     * TODO：输出格式化内容到控制台，自动添加换行符
+     * 输出格式化内容到控制台，自动添加换行符
      * @param string $format
      * @param mixed ...$arg
      */
@@ -34,7 +34,7 @@ class Console
     }
 
     /**
-     * TODO：在控制台打印内容
+     * 在控制台打印内容
      * @param mixed ...$message
      */
     public static function trace(...$message): void
@@ -53,7 +53,7 @@ class Console
     }
 
     /**
-     * TODO：清屏
+     * 清屏
      */
     public static function clearScreen(): void
     {
@@ -72,7 +72,7 @@ class Console
     }
 
     /**
-     * TODO：获取指定开关是否打开
+     * 获取指定开关是否打开
      * @param string $name
      * @return bool
      */
@@ -83,7 +83,7 @@ class Console
     }
 
     /**
-     * TODO：获取指定设置内容
+     * 获取指定设置内容
      * @param string $name
      * @return string|null
      */
@@ -99,7 +99,7 @@ class Console
     }
 
     /**
-     * TODO：获取指定开关名称的配置值
+     * 获取指定开关名称的配置值
      * @param string $name
      * @param bool $hasBar
      * @return string|null
@@ -118,7 +118,7 @@ class Console
     }
 
     /**
-     * TODO：引导用户输入，返回输入内容
+     * 引导用户输入，返回输入内容
      * @param string $tips
      * @return string
      */
@@ -126,7 +126,7 @@ class Console
     {
         self::print($tips);
         $msg = fgets(STDIN);
-        // TODO：如果接收内容为null时，退出进程
+        // 如果接收内容为null时，退出进程
         if (false === $msg) {
             exit(0);
         }
@@ -134,7 +134,7 @@ class Console
     }
 
     /**
-     * TODO：取出指定范围的命令行参数，返回数组
+     * 取出指定范围的命令行参数，返回数组
      * @param int $start
      * @param int $end
      * @return array

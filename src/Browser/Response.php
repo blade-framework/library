@@ -1,6 +1,6 @@
 <?php
 
-namespace Blade\Browser;
+namespace Blade\Library\Browser;
 
 /**
  * 模拟浏览器-响应数据
