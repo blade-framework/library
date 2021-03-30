@@ -12,7 +12,7 @@ use Blade\Library\Browser\Response;
  * - 所有的响应信息在response对象中
  * - 仅支持http和https请求
  * - post请求支持表单和文本
- * - 同一个域名使用同一个本实例时，资源自动复用
+ * - 同一个域名使用同一个本实例时，资源自动复用，
  * - 不同域名时请重新创建实例
  *
  * @property Request $request
